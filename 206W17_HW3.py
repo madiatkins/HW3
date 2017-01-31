@@ -50,12 +50,25 @@ def parse_counted_words(string):
 
 ## (a) Write Python code to determine how many of these paths identify FILES, not directories. 
 #Save that number in the variable file_paths_num.
+file = open('computer_paths.txt')
+linenum = []
+for line in file:
+    line = line.rstrip()
+    if re.findall("\S*[.][a-z]\S*", line):
+        linenum.append(line)
 
+file_paths_num = len(linenum)
 
 ## (b) Write Python code to determine how many of these paths are FULL paths, not relative paths. 
 #Save that number in the variable full_paths_num. Basically, /Users/ = FULL, otherwise relative
-
-
+file = open('computer_paths.txt')
+linenum2 = []
+for line in file:
+    line = line.rstrip()
+    if re.findall("[~].+[A-Za-z0-9]", line):
+        linenum2.append(line)
+    if re.findall('^[/].+[A-Za-z0-9]', line):
+        linenum2.append(line)
 
 
 ## (c) Write Python code to determine how many of these paths describe a Python file saved
