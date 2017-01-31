@@ -94,7 +94,6 @@ for line in file:
     line = line.rstrip()
     if re.findall("[0-9]+[.]", line):
         if re.findall("[.].+[x]", line):
-            print(line) 
             linenum4.append(line)
 
 microsoft_files_num = len(linenum4)
